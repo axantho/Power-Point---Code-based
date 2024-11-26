@@ -1,0 +1,67 @@
+Sub CreateInteractivePitchDeck()
+    Dim PowerPointApp As Object
+    Dim PowerPointPres As Object
+    Dim slide As Object
+    Dim slideIndex As Integer
+
+    ' Create a new instance of PowerPoint
+    Set PowerPointApp = CreateObject("PowerPoint.Application")
+    PowerPointApp.Visible = True
+
+    ' Create a new presentation
+    Set PowerPointPres = PowerPointApp.Presentations.Add
+
+    ' Slide 1: Title Slide
+    slideIndex = slideIndex + 1
+    Set slide = PowerPointPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
+    slide.Shapes(1).TextFrame.TextRange.Text = "Company Pitch Deck"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Innovative Solutions for Tomorrow"
+    
+    ' Add links to other slides
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.Address = ""
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "2" ' Link to Introduction
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "3" ' Link to Our Services
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "4" ' Link to Case Studies
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "5" ' Link to Contact Us
+
+    ' Slide 2: Introduction
+    slideIndex = slideIndex + 1
+    Set slide = PowerPointPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Introduction"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Welcome to our company pitch. We provide innovative solutions that help businesses thrive."
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.Address = ""
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "1" ' Link to Title Slide
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "3" ' Link to Our Services
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "4" ' Link to Case Studies
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "5" ' Link to Contact Us
+
+    ' Slide 3: Our Services
+    slideIndex = slideIndex + 1
+    Set slide = PowerPointPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Our Services"
+    slide.Shapes(2).TextFrame.TextRange.Text = "We offer a wide range of services, including software development, digital marketing, and IT consulting."
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.Address = ""
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "2" ' Link to Introduction
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "4" ' Link to Case Studies
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "5" ' Link to Contact Us
+
+    ' Slide 4: Case Studies
+    slideIndex = slideIndex + 1
+    Set slide = PowerPointPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Case Studies"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Here are some of the successful projects we’ve worked on."
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.Address = ""
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "2" ' Link to Introduction
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "3" ' Link to Our Services
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "5" ' Link to Contact Us
+
+    ' Slide 5: Contact Us
+    slideIndex = slideIndex + 1
+    Set slide = PowerPointPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Contact Us"
+    slide.Shapes(2).TextFrame.TextRange.Text = "For more information or inquiries, get in touch with us at info@company.com"
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.Address = ""
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "1" ' Link to Title Slide
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "3" ' Link to Our Services
+    slide.Shapes(2).TextFrame.TextRange.ActionSettings(1).Hyperlink.SubAddress = "4" ' Link to Case Studies
+End Sub
